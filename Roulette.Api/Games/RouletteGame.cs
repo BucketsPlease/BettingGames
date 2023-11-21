@@ -1,4 +1,5 @@
-﻿using Roulette.Api.Factories.WheelOfChanceGames;
+﻿using Roulette.Api.Data.BasicRepository;
+using Roulette.Api.Factories.WheelOfChanceGames;
 using Roulette.Api.House.Bets;
 
 namespace Roulette.Api.Games
@@ -6,13 +7,14 @@ namespace Roulette.Api.Games
     public class RouletteGame : IRouletteGame
     {
         private readonly IBet _bet;
-
-        public RouletteGame(IBet bet)
+        private readonly IBetRepo _betRepoistory;
+        public RouletteGame(IBet bet, IBetRepo betRepoistory)
         {
             _bet = bet;
+            _betRepoistory = betRepoistory;
         }
 
-        public string PlayRoulette(string region, int betAmount, int selectedNumber) 
+        public async Task<string> PlayRouletteAsync(string region, int betAmount, int selectedNumber) 
         {
             if (selectedNumber < 0)
             {
@@ -47,10 +49,22 @@ namespace Roulette.Api.Games
                 throw new ArgumentNullException(nameof(result));
             }
 
+           await _betRepoistory.AddBetAsync(new Data.Models.Bet
+            {
+                Amount = result.Value,
+                BetNumber = selectedNumber,
+            });
+
             if (result.Value != selectedNumber)
             {
                 return $"Sorry you did not win, the winning number was {selectedNumber}, try again?";
             }
+
+            //_betRepoistory.AddBetAsync(new Data.Models.Bet
+            //{
+            //    Amount = result.Value,
+            //    BetNumber = selectedNumber,
+            //});
 
             return $"Congratulations your bet of {betAmount} and number selection of {selectedNumber} just won you {_bet.CalculatePayout(betAmount)}";
         }

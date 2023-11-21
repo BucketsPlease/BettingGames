@@ -2,6 +2,6 @@
 {
     public interface IRouletteGame
     {
-        string PlayRoulette(string region, int bet, int selectedNumber);
+        Task<string> PlayRouletteAsync(string region, int betAmount, int selectedNumber);
     }
 }

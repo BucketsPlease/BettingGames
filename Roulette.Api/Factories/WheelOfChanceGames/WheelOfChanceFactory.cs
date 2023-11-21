@@ -1,5 +1,5 @@
-﻿using Roulette.Api.GameActions;
-using Roulette.Api.Games.GameTypes;
+﻿using Roulette.Api.Games.GameTypes;
+using Roulette.Api.GameStyles;
 
 namespace Roulette.Api.Factories.WheelOfChanceGames
 {

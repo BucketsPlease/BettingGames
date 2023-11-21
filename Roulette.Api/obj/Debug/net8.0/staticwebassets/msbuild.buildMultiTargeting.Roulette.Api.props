@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Roulette.Api.props" />
+</Project>
