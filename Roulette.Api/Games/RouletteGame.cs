@@ -60,12 +60,6 @@ namespace Roulette.Api.Games
                 return $"Sorry you did not win, the winning number was {selectedNumber}, try again?";
             }
 
-            //_betRepoistory.AddBetAsync(new Data.Models.Bet
-            //{
-            //    Amount = result.Value,
-            //    BetNumber = selectedNumber,
-            //});
-
             return $"Congratulations your bet of {betAmount} and number selection of {selectedNumber} just won you {_bet.CalculatePayout(betAmount)}";
         }
     }
