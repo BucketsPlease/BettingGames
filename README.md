@@ -1,5 +1,5 @@
 #Northwind DB test
-- Followed the iinstructions ( server 2000) I have MSSQL studio and this DB would throw tons of errors when running the script.
+- Followed the instructions: I have MSSQL studio and this DB would throw tons of errors when running the script. I think this is because the DB requires server 2000.
 
 #Assumptions
 - we were told to keep it basic, so I kept everything in the same tier.
