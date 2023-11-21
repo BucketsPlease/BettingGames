@@ -6,7 +6,8 @@
 - not catering for users as it was not required.
 
 # BettingGames
-- can run the api.
+- code-first approach, migrations.
+- Run the api.
 - swagger will launch.
 - Endpoint PlayRoulette is the endpoint you can use.
 - Endpoint GetAllPreviousBets to return all bets you have currently entered.
